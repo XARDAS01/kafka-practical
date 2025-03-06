@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class KafkaOrderProducerServiceImpl implements KafkaProducerSerivce {
+public class KafkaNotificationProducerServiceImpl implements KafkaProducerSerivce {
 
     private final KafkaTemplate<String, String> kafkaTemplate;
 
@@ -16,6 +16,6 @@ public class KafkaOrderProducerServiceImpl implements KafkaProducerSerivce {
         kafkaTemplate.send("new_orders", message);
         System.out.println("Create new order");
 
-        kafkaTemplate.send("web_logs", "order_logs", "Order service log message new order: " + message);
+        kafkaTemplate.send("web_logs", "notification_logs", "Order service log message new order: " + message);
     }
 }

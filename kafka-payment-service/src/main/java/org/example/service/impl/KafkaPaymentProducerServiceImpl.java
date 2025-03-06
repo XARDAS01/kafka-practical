@@ -12,8 +12,10 @@ public class KafkaPaymentProducerServiceImpl implements KafkaProducerSerivce {
     private final KafkaTemplate<String, String> kafkaTemplate;
 
     @Override
-    public void sendPaymentProcessedEvent(String message) {
+    public void sendEvent(String message) {
         kafkaTemplate.send("payed_orders", message);
         System.out.println("Order payed");
+
+        kafkaTemplate.send("web_logs", "payment_logs", "Payment service log message new payed order: " + message);
     }
 }

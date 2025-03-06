@@ -13,7 +13,7 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public String makeOrder() {
         final var order = "order";
-        kafkaProducerSerivce.sendPaymentProcessedEvent(order);
+        kafkaProducerSerivce.sendEvent(order);
 
         return order;
     }

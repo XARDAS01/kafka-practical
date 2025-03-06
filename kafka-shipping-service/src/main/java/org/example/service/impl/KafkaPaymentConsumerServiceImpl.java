@@ -14,8 +14,8 @@ public class KafkaPaymentConsumerServiceImpl implements KafkaConsumerService {
 
     @KafkaListener(topics = "payed_orders")
     @Override
-    public void consumeProcessedEvent(String message) {
-        kafkaProducerSerivce.sendPaymentProcessedEvent(message);
+    public void consumeEvent(String message) {
+        kafkaProducerSerivce.sendEvent(message);
         System.out.println("Order shipping process");
     }
 }

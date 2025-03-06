@@ -7,6 +7,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="kafka-logging-service" />
         <module name="kafka-notification-service" />
         <module name="kafka-payment-service" />
         <module name="kafka-commons" />
@@ -18,6 +19,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="kafka-commons" options="-parameters" />
+      <module name="kafka-logging-service" options="-parameters" />
       <module name="kafka-notification-service" options="-parameters" />
       <module name="kafka-order-service" options="-parameters" />
       <module name="kafka-payment-service" options="-parameters" />
