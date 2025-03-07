@@ -2,7 +2,13 @@ spring:
   kafka:
     bootstrap-servers: localhost:9092
     topics:
+      - name: new_orders
+        num-partitions: 3
+        replication-factor: 1
       - name: payed_orders
+        num-partitions: 3
+        replication-factor: 1
+      - name: sent_orders
         num-partitions: 3
         replication-factor: 1
     producer:

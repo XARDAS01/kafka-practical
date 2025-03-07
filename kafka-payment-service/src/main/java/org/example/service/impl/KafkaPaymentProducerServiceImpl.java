@@ -15,7 +15,5 @@ public class KafkaPaymentProducerServiceImpl implements KafkaProducerSerivce {
     public void sendEvent(String message) {
         kafkaTemplate.send("payed_orders", message);
         System.out.println("Order payed");
-
-        kafkaTemplate.send("web_logs", "payment_logs", "Payment service log message new payed order: " + message);
     }
 }

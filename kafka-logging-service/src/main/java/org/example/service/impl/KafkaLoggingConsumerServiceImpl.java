@@ -9,9 +9,19 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class KafkaLoggingConsumerServiceImpl implements KafkaConsumerService {
 
-    @KafkaListener(topics = "web_logs")
+    @KafkaListener(topics = "new_orders")
     @Override
     public void consumeEvent(String message) {
-        System.out.println("Log: " + message);
+        System.out.println("Log new orders: " + message);
+    }
+
+    @KafkaListener(topics = "payed_orders")
+    public void consumeEventPayedOrders(String message) {
+        System.out.println("Log new payed orders: " + message);
+    }
+
+    @KafkaListener(topics = "sent_orders")
+    public void consumeEventSentOrders(String message) {
+        System.out.println("Log new send orders: " + message);
     }
 }

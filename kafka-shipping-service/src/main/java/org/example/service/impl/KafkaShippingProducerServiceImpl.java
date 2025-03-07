@@ -16,7 +16,5 @@ public class KafkaShippingProducerServiceImpl implements KafkaProducerSerivce {
     public void sendEvent(String message) {
         kafkaTemplate.send("sent_orders", message);
         System.out.println("Order sent");
-
-        kafkaTemplate.send("web_logs", "shipping_logs", "Shipping service log message new sent order: " + message);
     }
 }
